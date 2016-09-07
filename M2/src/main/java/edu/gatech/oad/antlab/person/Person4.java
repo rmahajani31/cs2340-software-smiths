@@ -6,7 +6,7 @@ import java.lang.StringBuilder;
  *  returns their name and a
  *  modified string
  *
- *  @author Bob
+ *  @author Arber Muharemi
  *  @version 1.1
  */
 public class Person4 {
