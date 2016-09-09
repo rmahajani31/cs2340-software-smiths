@@ -44,6 +44,6 @@
             <Button mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
         </buttons>
       </ButtonBar>
-      <ComboBox layoutX="181.0" layoutY="156.0" prefHeight="26.0" prefWidth="143.0" promptText="Class Standing" />
+      <ComboBox fx:id="standingBox" layoutX="181.0" layoutY="156.0" prefHeight="26.0" prefWidth="143.0" promptText="Class Standing" />
    </children>
 </AnchorPane>

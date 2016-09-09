@@ -1,10 +1,17 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.ClassStanding;
 import model.Student;
+import javafx.collections.*;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Created by robertwaters on 9/4/16.
@@ -12,7 +19,7 @@ import model.Student;
  *
  * Controller for the Student Edit / Add dialog box
  */
-public class StudentEditController {
+public class StudentEditController implements Initializable {
 
     /*  **********************
         References to the FXML widgets in the .fxml file
@@ -22,6 +29,9 @@ public class StudentEditController {
 
     @FXML
     private TextField majorField;
+
+    @FXML
+    private ComboBox standingBox;
 
     /** the window for this dialog */
     private Stage _dialogStage;
@@ -35,8 +45,17 @@ public class StudentEditController {
     /**
      * called automatically after load
      */
-    private void initialize() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        standingBox.setItems(generateComboList());
+    }
 
+    private static ObservableList<String> generateComboList() {
+        ObservableList<String> myList = FXCollections.observableArrayList();
+        for (ClassStanding s : ClassStanding.values()) {
+            myList.add(s.getClassValue());
+        }
+        return myList;
     }
 
     /**
@@ -132,5 +151,4 @@ public class StudentEditController {
             return false;
         }
     }
-
 }
