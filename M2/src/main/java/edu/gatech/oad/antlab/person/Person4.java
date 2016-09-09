@@ -38,7 +38,7 @@ public class Person4 {
             int newChar = newStr.charAt(i) + 1;
             newStr.setCharAt(i, (char) newChar);
         }
-      return input;
+        return newStr.toString();
     }
 
     /**
