@@ -20,6 +20,7 @@ public class Student {
      */
     private final StringProperty _name = new SimpleStringProperty();
     private final StringProperty _major = new SimpleStringProperty();
+    private final StringProperty _classStanding = new SimpleStringProperty();
 
     /* **********************
      * Getters and setters for properties
@@ -30,6 +31,9 @@ public class Student {
     public String getMajor() {return _major.get(); }
     public void setMajor(String major) { _major.set(major); }
 
+    public String getClassStanding() {return _classStanding.get();}
+    public void setClassStanding(ClassStanding standing) {_classStanding.set(standing.getRepresentation());}
+
     /**
      * Make a new student
      * @param name      the student's name
@@ -38,6 +42,12 @@ public class Student {
     public Student(String name, String major) {
         _name.set(name);
         _major.set(major);
+        setClassStanding(ClassStanding.FRESHMAN);
+    }
+
+    public Student(String name, String major, ClassStanding standing) {
+        this(name, major);
+        setClassStanding(standing);
     }
 
     /**
@@ -54,7 +64,7 @@ public class Student {
      * @return the display string representation
      */
     public String toString() {
-        return _name.get() + " " + _major.get();
+        return _name.get() + " " + _major.get() + " " + _classStanding.get();
     }
 
 }
